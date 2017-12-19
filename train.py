@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     adaBoostClassifier = AdaBoostClassifier(weak_classifier = DecisionTreeClassifier ,
                                         n_weakers_limit = 25)
-    #adaBoostClassifier.fit(X_train,y_train)
+    adaBoostClassifier.fit(X_train,y_train)
     pred = adaBoostClassifier.predict(X_test,y_test)
     #write the report.txt
     target_names = ['nonface', 'face'] 
@@ -76,24 +76,3 @@ if __name__ == "__main__":
     with open("./report.txt","w") as f:
         f.write(report)
 
-    '''
-    m,n = X_train.shape
-    #initialize D (weights)
-    D = array(ones(m))
-    D = D * (1/m)
-    print(D.shape)
-    clf = DecisionTreeClassifier(max_depth=2)
-    a = 1/150
-    a = clf.fit(X_train,y_train,sample_weight = D)
-    b = clf.predict(X_test)
-    c = b^y_test
-    print(type(clf.copy()))
-    #print(c.sum())
-    #print(c)
-    '''
-    '''
-    a = array([-1,-1,-1])
-    b = array([1,-1,1])
-    target_names = ['class 0', 'class 1']
-    print(classification_report(a, b, target_names=target_names))
-    '''
