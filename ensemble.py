@@ -118,7 +118,7 @@ class AdaBoostClassifier:
         ClassEst = 0
         totalClassEst = array(zeros(m))
         errorRate_list = []
-        for i in range(self.n_weakers_limit):
+        for i in range(len(weak_classifier_list)):
             #using the weak classifier and alpha stored.
             pred = weak_classifier_list[i].predict(X)
             totalClassEst += alpha_list[i] * pred
